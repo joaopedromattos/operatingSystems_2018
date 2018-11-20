@@ -1,3 +1,11 @@
+// TRABALHO PARA A DISCIPLINA DE SISTEMAS OPERACIONAIS - SSC-0140 - ICMC - USP 
+// NOME DO PROJETO: SIMULADOR DE ALGORITMO EMISSOR DESCRITO NO LIVRO MODERN OPERATING SYSTEMS TANENBAUM 
+// FEITO POR:
+// JOAO PEDRO RODRIGUES MATTOS - 10295732
+// GIOVANNI PAOLO MELONI - 10295603
+// GUSTAVO SASAKI RONCAGLIA - 10295652
+
+
 #include <iostream>
 #include <vector>
 #include <list>
@@ -7,10 +15,12 @@
 #include <random>
 #include <string>
 #include <fstream>
+
 int AJL = 5;
 double VARIANCIA = 2;
 int NUMEROPROCESSADORES = 8;
 int NUMERODEITERACOES = 2000000;
+int PRECISAODEDADOS = 200;
 char TIPODECARGA = 1; // 1 => carga leve, 2=> carga pesada
 
 using namespace std;
@@ -83,7 +93,7 @@ int main(int argc, char *argv[]){
                 }
             }
 
-            if (tempoDeExecucao % 2000 == 0){
+            if (tempoDeExecucao % PRECISAODEDADOS == 0){
                 cout << "Mensagens Enviadas: " << vetorDeProcessadores[CPU].getMensagensEnviadas() << " Mensagens recebidas: " << vetorDeProcessadores[CPU].getMensagensEnviadas() << endl;
 
                 // Escrevemos no arquivo os dados do timelapse.
